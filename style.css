@@ -1,0 +1,278 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Header Section */
+.main-header {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.ibb.co/vXqDmnh/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    border-bottom: 8px solid #222;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    height: 90px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.btn {
+    padding: 8px 17px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.header-content {
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.header-content h1 {
+    font-size: 3.125rem;
+    font-weight: 700;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.header-content h3 {
+    font-size: 1.625rem;
+    font-weight: 400;
+    margin: 1rem auto;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.email-signup {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.email-signup input {
+    width: 450px;
+    height: 60px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.btn-get-started {
+    font-size: 1.625rem;
+    height: 60px;
+    border-radius: 0;
+}
+
+/* Feature Cards */
+.feature-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 12%;
+    border-bottom: 8px solid #222;
+}
+
+.text-col {
+    width: 52%;
+}
+
+.text-col h2 {
+    font-size: 3.125rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.text-col p {
+    font-size: 1.625rem;
+    font-weight: 400;
+}
+
+.img-col img {
+    width: 100%;
+}
+
+/* Reversing order for alternate cards */
+.feature-card:nth-child(even) .text-col {
+    order: 2;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 70px 0;
+    text-align: center;
+    border-bottom: 8px solid #222;
+}
+
+.faq-section h2 {
+    font-size: 3.125rem;
+    margin-bottom: 40px;
+}
+
+.faq-list {
+    list-style: none;
+    width: 75%;
+    margin: auto;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px 30px;
+    background-color: #303030;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 1.625rem;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 2px;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 30px;
+    font-size: 2rem;
+    font-weight: 200;
+    transition: transform 0.2s;
+}
+
+.faq-answer {
+    background-color: #303030;
+    padding: 0 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s, padding 0.25s;
+    text-align: left;
+}
+
+.faq-answer p {
+    font-size: 1.625rem;
+    padding: 30px 0;
+}
+
+/* Active state for FAQ */
+.faq-list li.active .faq-answer {
+    max-height: 600px;
+    padding: 30px;
+}
+
+.faq-list li.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+
+/* Footer */
+.main-footer {
+    padding: 70px 15%;
+    color: #737373;
+}
+
+.main-footer p {
+    margin-bottom: 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.footer-grid a {
+    color: #737373;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+/* Media Queries for Responsiveness */
+
+@media (max-width: 950px) {
+    .logo {
+        width: 100px;
+    }
+
+    .header-content h1, .text-col h2, .faq-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .header-content h3, .text-col p, .faq-question, .faq-answer p {
+        font-size: 1.25rem;
+    }
+
+    .feature-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-col, .img-col {
+        width: 100%;
+        padding: 20px 0;
+    }
+    
+    .feature-card:nth-child(even) .text-col {
+        order: 0; /* Reset order for stacking */
+    }
+
+    .faq-list {
+        width: 90%;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+        padding: 15px 20px;
+    }
+    
+    .header-content {
+        padding: 100px 10px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-content h3 {
+        font-size: 1rem;
+    }
+
+    .email-signup {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-signup input {
+        width: 100%;
+        max-width: 400px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .btn-get-started {
+        font-size: 1.2rem;
+        height: 50px;
+        padding: 0 20px;
+    }
+}
